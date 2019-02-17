@@ -1,0 +1,8 @@
+@import './variables';
+@import './homepage.xs';
+@import './homepage.md';
+
+body {
+  margin: 0;
+  font-family: $font-family;
+}
