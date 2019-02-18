@@ -58,9 +58,9 @@ export default class Search extends React.Component {
   filterSearchResults(searchString) {
     let filteredRecipes = [];
     if (searchString) {
-      const categories = this.createFilterList('categories', 'category');
-      const areas = this.createFilterList('areas', 'area');
-      const ingredients = this.createFilterList('ingredients', 'ingredient');
+      const categories = this.createFilterList('categories', 'category', searchString);
+      const areas = this.createFilterList('areas', 'area', searchString);
+      const ingredients = this.createFilterList('ingredients', 'ingredient', searchString);
       filteredRecipes = [...categories, ...areas, ...ingredients];
     }
 
@@ -72,9 +72,9 @@ export default class Search extends React.Component {
     this.props.submitSearch(listName, item)
   }
 
-  createFilterList(listName, label) {
+  createFilterList(listName, label, searchString) {
     const list = [];
-    const listArr = this.state[listName].filter(item => item.toLowerCase().includes(this.state.searchString));
+    const listArr = this.state[listName].filter(item => item.toLowerCase().includes(searchString.toLowerCase()));
     listArr.forEach((item) => {
       list.push(
         <Link to={`/homepage/search/${listName}/${item}`} key={`${listName}-${item}`}>
