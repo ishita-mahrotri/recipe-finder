@@ -21,6 +21,7 @@ class App extends React.Component {
               <Route exact path="/homepage" render={props => <HomePage />} />
               <Route exact path="/homepage/search/:queryType/:query" render={props => <HomePage />} />
               <Route exact path="/homepage/:recipename" render={props => <HomePage />} />
+              <Route exact path="/homepage/:favorites" render={props => <HomePage />} />
             </Switch>
           </div>
         </BrowserRouter>

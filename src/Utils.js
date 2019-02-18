@@ -13,4 +13,13 @@ export const apiCall = {
   getCategoriesSearch: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=',
   getAreasSearch: 'https://www.themealdb.com/api/json/v1/1/filter.php?a=',
   getIngredientsSearch: 'https://www.themealdb.com/api/json/v1/1/filter.php?i=',
+  getRecipe: 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=',
+}
+
+export function getFavorites() {
+  return JSON.parse(localStorage.getItem('favorites'));
+}
+
+export function setFavorites(favorites) {
+  localStorage.setItem('favorites', JSON.stringify(favorites));
 }

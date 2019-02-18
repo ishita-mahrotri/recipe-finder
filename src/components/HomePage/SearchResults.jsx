@@ -25,12 +25,9 @@ export default class SearchResults extends React.Component {
       queryURL = apiCall.getIngredientsSearch;
     }
 
-    console.log(`${queryURL}${this.props.listValue}`);
-
     fetchData(`${queryURL}${this.props.listValue}`)
     // eslint-disable-next-line
     .then((data) => {
-      console.log(data);
       this.buildSearchGrid(data.meals);
     })
   }

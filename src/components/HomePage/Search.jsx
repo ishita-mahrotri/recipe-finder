@@ -49,7 +49,6 @@ export default class Search extends React.Component {
 
   handleInputChange(value) {
     const filteredRecipes = this.filterSearchResults(value);
-    console.log(filteredRecipes);
     this.setState({
       searchString: value, 
       filteredRecipes,
@@ -58,9 +57,7 @@ export default class Search extends React.Component {
 
   filterSearchResults(searchString) {
     let filteredRecipes = [];
-    console.log(searchString);
     if (searchString) {
-      console.log('inside true loop');
       const categories = this.createFilterList('categories', 'category');
       const areas = this.createFilterList('areas', 'area');
       const ingredients = this.createFilterList('ingredients', 'ingredient');
@@ -68,6 +65,11 @@ export default class Search extends React.Component {
     }
 
     return filteredRecipes;
+  }
+
+  submitSearch(listName, item) {
+    this.setState({ searchString: '', filteredRecipes: [] });
+    this.props.submitSearch(listName, item)
   }
 
   createFilterList(listName, label) {
@@ -78,8 +80,8 @@ export default class Search extends React.Component {
         <Link to={`/homepage/search/${listName}/${item}`} key={`${listName}-${item}`}>
           <li className="list-item"
             role="button" tabIndex={0}
-            onClick={() => this.props.submitSearch(listName, item)}
-            onKeyDown={() => this.props.submitSearch(listName, item)}
+            onClick={() => this.submitSearch(listName, item)}
+            onKeyDown={() => this.submitSearch(listName, item)}
           >
             <p className="item">{item}</p>
             <p className="label">{label}</p>
@@ -100,12 +102,18 @@ export default class Search extends React.Component {
             value={this.state.searchString} 
             onChange={e => this.handleInputChange(e.target.value)}
           />
+          <i className="fas fa-search search-icon" />          
         </div>
-        <div className="filter-list">
-          <ul>
-            {this.state.filteredRecipes}
-          </ul>
-        </div>
+        {
+          this.state.filteredRecipes && this.state.filteredRecipes.length > 0 ? 
+            <div className="filter-list">
+              <ul>
+                {this.state.filteredRecipes}
+              </ul>
+            </div>
+          : null
+        }
+        
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getFavorites, setFavorites } from '../../Utils.js';
 
 export default class Recipe extends React.Component {
   constructor(props) {
@@ -31,34 +32,29 @@ export default class Recipe extends React.Component {
   }
 
   checkFavorites() {
-    const favorites = Recipe.getFavorites();
+    const favorites = getFavorites();
     if (favorites && favorites.length > 0 && favorites.includes(this.props.recipe.idMeal)) {
       this.setState({ isFavorite: true });
     }
   }
 
-  static getFavorites() {
-    return JSON.parse(localStorage.getItem('favorites'));
-  }
-
-  static setFavorites(favorites) {
-    console.log(JSON.stringify(favorites));
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
-
   addToFavorites() {
-    const favorites = Recipe.getFavorites() || [];
+    const favorites = getFavorites() || [];
     favorites.push(this.props.recipe.idMeal)
-    Recipe.setFavorites(favorites);
+    setFavorites(favorites);
     this.setState({ isFavorite: true });
+    // this.props.updateFavorites(true);
   }
 
   removeFromFavorites() {
-    const favorites = Recipe.getFavorites();
-    if (favorites && favorites.length > 0 && favorites.indexOf(this.props.recipe.idMeal >= 0)) {
-      favorites.splice(favorites.indexOf(this.props.recipe.idMeal), 1);
-      Recipe.setFavorites(favorites);
+    const favorites = getFavorites();
+    if (favorites && favorites.length > 0 && favorites.indexOf(this.props.idMeal >= 0)) {
+      favorites.splice(favorites.indexOf(this.props.idMeal), 1);
+      setFavorites(favorites);
       this.setState({ isFavorite: false });
+      // if (favorites && favorites.length === 0) {
+      //   this.props.updateFavorites(false);
+      // }
     }
   }
 
@@ -72,7 +68,6 @@ export default class Recipe extends React.Component {
           </Link>
             <h1 className="recipe-name">{this.props.title}</h1>
           </div>
-          {/* <i className="fas fa-times icon-close" onClick={this.props.onClose}></i> */}
           {
             this.state.isFavorite ? 
             <i className="fas fa-heart icon-favorite filled"

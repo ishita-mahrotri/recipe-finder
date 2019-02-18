@@ -2,9 +2,21 @@
   font-size: 16px;
   line-height: 24px; }
 
+.desktop-search {
+  display: none; }
+
 .icon-close {
   color: #000;
   font-size: 25px; }
+
+.icon-favorite {
+  font-size: 30px; }
+  .icon-favorite.filled {
+    color: red; }
+
+a {
+  text-decoration: none;
+  color: #222; }
 
 .homepage .header .background {
   width: 100%;
@@ -16,13 +28,24 @@
   height: 175px;
   top: 7%; }
 
-.homepage .header .title {
+.homepage .title {
   font-style: italic;
   text-align: center;
   font-size: 24px;
   font-weight: 300;
   color: #666;
-  padding: 20px 20px 10px; }
+  padding: 20px 20px 10px;
+  margin-bottom: 0; }
+
+.homepage .button-favorites {
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px 0; }
+  .homepage .button-favorites .icon-favorite {
+    padding-right: 10px; }
 
 .homepage .thumbnail-link {
   text-decoration: none; }
@@ -71,10 +94,6 @@
       margin: 0;
       padding-left: 15px;
       font-weight: 300; }
-    .recipe .header .icon-favorite {
-      font-size: 30px; }
-      .recipe .header .icon-favorite.filled {
-        color: red; }
   .recipe .body {
     position: relative; }
     .recipe .body h2 {
@@ -113,6 +132,8 @@
     color: #fff;
     font-size: 24px;
     font-weight: 300; }
+  .search .search-icon {
+    display: none; }
   .search .filter-list {
     background-color: #fff;
     height: 400px;
@@ -144,6 +165,66 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
+
+@media only screen and (min-width: 1025px) {
+  .desktop-search {
+    display: block;
+    margin-left: 100px; }
+    .desktop-search .search-icon {
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 25px;
+      color: #666;
+      font-size: 20px; }
+    .desktop-search .search .header {
+      position: relative;
+      background-color: #fff;
+      padding: 0;
+      margin-left: 15px; }
+      .desktop-search .search .header .icon-close {
+        display: none; }
+    .desktop-search .search .search-text {
+      background-color: #fff;
+      width: 500px;
+      border: solid 1px #ccc;
+      margin-top: 10px;
+      padding-left: 40px;
+      color: #222; }
+    .desktop-search .search .filter-list {
+      width: 510px;
+      border: solid 1px #ccc;
+      margin-left: 15px; }
+  .search-button {
+    display: none; }
+  .modal {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    height: 500px;
+    width: 700px;
+    background: #fff;
+    overflow: scroll; }
+    .modal .body img {
+      height: 200px;
+      margin-left: 15px; }
+  .homepage .header .background {
+    display: none; }
+  .homepage .header .logo {
+    position: static;
+    height: 75px; }
+  .homepage h1.title {
+    margin-top: 0; }
+  .homepage .meal-list, .homepage .search-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 1008px;
+    margin: 0 auto 50px; }
+    .homepage .meal-list h2.title, .homepage .search-results h2.title {
+      font-size: 18px;
+      font-weight: 300;
+      height: 20px; } }
 
 body {
   margin: 0;

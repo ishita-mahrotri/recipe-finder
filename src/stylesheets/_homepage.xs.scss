@@ -5,9 +5,26 @@
   line-height: 24px;
 }
 
+.desktop-search {
+  display: none
+}
+
 .icon-close {
   color: #000;
   font-size: 25px;
+}
+
+.icon-favorite {
+  font-size: 30px;
+
+  &.filled {
+    color: red;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $text;
 }
 
 .homepage {
@@ -23,14 +40,28 @@
       height: 175px;
       top: 7%;
     }
+  }
 
-    .title {
-      font-style: italic;
-      text-align: center;
-      font-size: 24px;
-      font-weight: $font-weight-light;
-      color: $grey-medium;
-      padding: 20px 20px 10px;
+  .title {
+    font-style: italic;
+    text-align: center;
+    font-size: 24px;
+    font-weight: $font-weight-light;
+    color: $grey-medium;
+    padding: 20px 20px 10px;
+    margin-bottom: 0;
+  }
+
+  .button-favorites {
+    color: $text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 10px 0;
+
+    .icon-favorite {
+      padding-right: 10px;
     }
   }
 
@@ -97,14 +128,6 @@
       padding-left: 15px;
       font-weight: $font-weight-light;
     }
-
-    .icon-favorite {
-      font-size: 30px;
-
-      &.filled {
-        color: red;
-      }
-    }
   }
 
   .body {
@@ -164,6 +187,10 @@
     color: #fff;
     font-size: 24px;
     font-weight: $font-weight-light;
+  }
+
+  .search-icon {
+    display: none;
   }
 
   .filter-list {
