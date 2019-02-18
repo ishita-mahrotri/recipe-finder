@@ -65,6 +65,14 @@
     }
   }
 
+  .recipe {
+    .body {
+      thumbnail {
+        width: auto;
+      }
+    }
+  }
+
   .homepage {
     .header {
       .background {
@@ -91,7 +99,6 @@
       h2.title {
         font-size: 18px;
         font-weight: $font-weight-light;
-        height: 20px;
       }
     }
   }

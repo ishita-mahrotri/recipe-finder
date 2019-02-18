@@ -14,13 +14,17 @@ export default class Favorites extends React.Component {
     this.getData();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.favorites !== this.props.favorites) {
+      this.getData();
+    }
+  }
+
   getData() {
     let recipe = {};
-    // const recipeIds = [];
     const favorites = getFavorites();
-    // const favoriteRecipes = [];
     if (favorites && favorites.length > 0) {
-      for (let i = 0; i <= favorites.length; i++) {
+      for (let i = 0; i < favorites.length; i++) {
         fetchData(`${apiCall.getRecipe}${favorites[i]}`)
         // eslint-disable-next-line
         .then((data) => {

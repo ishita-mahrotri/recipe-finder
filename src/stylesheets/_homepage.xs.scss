@@ -107,6 +107,7 @@ a {
   width: 100%;
   background: #fff;
   overflow: auto;
+  // pointer-events: all;
 }
 
 .recipe {
@@ -229,10 +230,10 @@ a {
       font-size: 14px;
       padding: 15px;
       font-weight: $font-weight-light;
-      width: 150px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      // width: 150px;
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
     }
   }
 }

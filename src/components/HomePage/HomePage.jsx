@@ -92,11 +92,11 @@ export default class HomePage extends React.Component {
       return (
         <div className="homepage" style={this.state.isModalOpen ? {backgroundColor: 'rgba(0,0,0, 0.2)'} : {}}>
           <div className="header">
-          <Link to="/homepage" onClick={() => this.viewHomePage()}>
+          <Link to="/homepage" onClick={() => this.viewHomePage()} style={this.state.isModalOpen ? {pointerEvents: 'none'} : {}}>
             <img src={homepageBG} alt="" className="background" />
             <img src={logo} alt={"logo"} className="logo" />
           </Link>
-          <div className="desktop-search">
+          <div className="desktop-search" style={this.state.isModalOpen ? {pointerEvents: 'none'} : {}}>
             <Search onClose={() => this.toggleSearch()} submitSearch={(listName, listValue) => this.submitSearch(listName, listValue, false)} />
           </div>
           <h1 className="title">

@@ -14,6 +14,12 @@ export default class SearchResults extends React.Component {
     this.getData();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.listType !== this.props.listType || prevProps.listValue !== this.props.listValue) {
+      this.getData();
+    }
+  }
+
   getData() {
     let queryURL = '';
 

@@ -3,6 +3,9 @@ export function fetchData(requestURL) {
   .then(function(response) {
     return response.json();
   })
+  .catch((error) => {
+    console.log(error);
+  });
 }
 
 export const apiCall = {

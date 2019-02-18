@@ -43,7 +43,6 @@ export default class Recipe extends React.Component {
     favorites.push(this.props.recipe.idMeal)
     setFavorites(favorites);
     this.setState({ isFavorite: true });
-    // this.props.updateFavorites(true);
   }
 
   removeFromFavorites() {
@@ -52,9 +51,6 @@ export default class Recipe extends React.Component {
       favorites.splice(favorites.indexOf(this.props.idMeal), 1);
       setFavorites(favorites);
       this.setState({ isFavorite: false });
-      // if (favorites && favorites.length === 0) {
-      //   this.props.updateFavorites(false);
-      // }
     }
   }
 

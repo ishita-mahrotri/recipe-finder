@@ -136,7 +136,6 @@ a {
     display: none; }
   .search .filter-list {
     background-color: #fff;
-    height: 400px;
     padding: 15px;
     overflow: scroll;
     text-decoration: none;
@@ -160,11 +159,7 @@ a {
   .search-results .recipeCard .title {
     font-size: 14px;
     padding: 15px;
-    font-weight: 300;
-    width: 150px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; }
+    font-weight: 300; }
 
 @media only screen and (min-width: 1025px) {
   .desktop-search {
@@ -208,6 +203,8 @@ a {
     .modal .body img {
       height: 200px;
       margin-left: 15px; }
+  .recipe .body thumbnail {
+    width: auto; }
   .homepage .header .background {
     display: none; }
   .homepage .header .logo {
@@ -223,8 +220,7 @@ a {
     margin: 0 auto 50px; }
     .homepage .meal-list h2.title, .homepage .search-results h2.title {
       font-size: 18px;
-      font-weight: 300;
-      height: 20px; } }
+      font-weight: 300; } }
 
 body {
   margin: 0;
